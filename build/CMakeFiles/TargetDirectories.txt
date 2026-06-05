@@ -1,0 +1,7 @@
+/home/zhang/test_loop/build/CMakeFiles/test.dir
+/home/zhang/test_loop/build/CMakeFiles/edit_cache.dir
+/home/zhang/test_loop/build/CMakeFiles/rebuild_cache.dir
+/home/zhang/test_loop/build/tests/CMakeFiles/test_snapshot_manager.dir
+/home/zhang/test_loop/build/tests/CMakeFiles/test.dir
+/home/zhang/test_loop/build/tests/CMakeFiles/edit_cache.dir
+/home/zhang/test_loop/build/tests/CMakeFiles/rebuild_cache.dir
