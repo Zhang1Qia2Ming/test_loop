@@ -95,6 +95,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles /home/zhang/test_loop/build//CMakeFiles/progress.marks
@@ -127,17 +172,217 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named test_snapshot_manager
+# Target rules for targets named test_loop
 
 # Build rule for target.
-test_snapshot_manager: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_snapshot_manager
-.PHONY : test_snapshot_manager
+test_loop: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_loop
+.PHONY : test_loop
 
 # fast build rule for target.
-test_snapshot_manager/fast:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/build
-.PHONY : test_snapshot_manager/fast
+test_loop/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/build
+.PHONY : test_loop/fast
+
+#=============================================================================
+# Target rules for targets named box2d
+
+# Build rule for target.
+box2d: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 box2d
+.PHONY : box2d
+
+# fast build rule for target.
+box2d/fast:
+	$(MAKE) $(MAKESILENT) -f third_party/box2d/src/CMakeFiles/box2d.dir/build.make third_party/box2d/src/CMakeFiles/box2d.dir/build
+.PHONY : box2d/fast
+
+#=============================================================================
+# Target rules for targets named minimal_parking
+
+# Build rule for target.
+minimal_parking: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 minimal_parking
+.PHONY : minimal_parking
+
+# fast build rule for target.
+minimal_parking/fast:
+	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/build
+.PHONY : minimal_parking/fast
+
+#=============================================================================
+# Target rules for targets named pid_tracking
+
+# Build rule for target.
+pid_tracking: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pid_tracking
+.PHONY : pid_tracking
+
+# fast build rule for target.
+pid_tracking/fast:
+	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/build
+.PHONY : pid_tracking/fast
+
+#=============================================================================
+# Target rules for targets named visualization
+
+# Build rule for target.
+visualization: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 visualization
+.PHONY : visualization
+
+# fast build rule for target.
+visualization/fast:
+	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/build
+.PHONY : visualization/fast
+
+#=============================================================================
+# Target rules for targets named glad
+
+# Build rule for target.
+glad: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glad
+.PHONY : glad
+
+# fast build rule for target.
+glad/fast:
+	$(MAKE) $(MAKESILENT) -f glad/CMakeFiles/glad.dir/build.make glad/CMakeFiles/glad.dir/build
+.PHONY : glad/fast
+
+#=============================================================================
+# Target rules for targets named glfw
+
+# Build rule for target.
+glfw: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw
+.PHONY : glfw
+
+# fast build rule for target.
+glfw/fast:
+	$(MAKE) $(MAKESILENT) -f glfw/CMakeFiles/glfw.dir/build.make glfw/CMakeFiles/glfw.dir/build
+.PHONY : glfw/fast
+
+#=============================================================================
+# Target rules for targets named imgui
+
+# Build rule for target.
+imgui: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imgui
+.PHONY : imgui
+
+# fast build rule for target.
+imgui/fast:
+	$(MAKE) $(MAKESILENT) -f imgui/CMakeFiles/imgui.dir/build.make imgui/CMakeFiles/imgui.dir/build
+.PHONY : imgui/fast
+
+#=============================================================================
+# Target rules for targets named test_loop_tests
+
+# Build rule for target.
+test_loop_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_loop_tests
+.PHONY : test_loop_tests
+
+# fast build rule for target.
+test_loop_tests/fast:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/build
+.PHONY : test_loop_tests/fast
+
+src/physics/vehicle.o: src/physics/vehicle.cpp.o
+.PHONY : src/physics/vehicle.o
+
+# target to build an object file
+src/physics/vehicle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/vehicle.cpp.o
+.PHONY : src/physics/vehicle.cpp.o
+
+src/physics/vehicle.i: src/physics/vehicle.cpp.i
+.PHONY : src/physics/vehicle.i
+
+# target to preprocess a source file
+src/physics/vehicle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/vehicle.cpp.i
+.PHONY : src/physics/vehicle.cpp.i
+
+src/physics/vehicle.s: src/physics/vehicle.cpp.s
+.PHONY : src/physics/vehicle.s
+
+# target to generate assembly for a file
+src/physics/vehicle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/vehicle.cpp.s
+.PHONY : src/physics/vehicle.cpp.s
+
+src/physics/world.o: src/physics/world.cpp.o
+.PHONY : src/physics/world.o
+
+# target to build an object file
+src/physics/world.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/world.cpp.o
+.PHONY : src/physics/world.cpp.o
+
+src/physics/world.i: src/physics/world.cpp.i
+.PHONY : src/physics/world.i
+
+# target to preprocess a source file
+src/physics/world.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/world.cpp.i
+.PHONY : src/physics/world.cpp.i
+
+src/physics/world.s: src/physics/world.cpp.s
+.PHONY : src/physics/world.s
+
+# target to generate assembly for a file
+src/physics/world.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/physics/world.cpp.s
+.PHONY : src/physics/world.cpp.s
+
+src/sensor/raycast_lidar.o: src/sensor/raycast_lidar.cpp.o
+.PHONY : src/sensor/raycast_lidar.o
+
+# target to build an object file
+src/sensor/raycast_lidar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/sensor/raycast_lidar.cpp.o
+.PHONY : src/sensor/raycast_lidar.cpp.o
+
+src/sensor/raycast_lidar.i: src/sensor/raycast_lidar.cpp.i
+.PHONY : src/sensor/raycast_lidar.i
+
+# target to preprocess a source file
+src/sensor/raycast_lidar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/sensor/raycast_lidar.cpp.i
+.PHONY : src/sensor/raycast_lidar.cpp.i
+
+src/sensor/raycast_lidar.s: src/sensor/raycast_lidar.cpp.s
+.PHONY : src/sensor/raycast_lidar.s
+
+# target to generate assembly for a file
+src/sensor/raycast_lidar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/sensor/raycast_lidar.cpp.s
+.PHONY : src/sensor/raycast_lidar.cpp.s
+
+src/simulator.o: src/simulator.cpp.o
+.PHONY : src/simulator.o
+
+# target to build an object file
+src/simulator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/simulator.cpp.o
+.PHONY : src/simulator.cpp.o
+
+src/simulator.i: src/simulator.cpp.i
+.PHONY : src/simulator.i
+
+# target to preprocess a source file
+src/simulator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/simulator.cpp.i
+.PHONY : src/simulator.cpp.i
+
+src/simulator.s: src/simulator.cpp.s
+.PHONY : src/simulator.s
+
+# target to generate assembly for a file
+src/simulator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/src/simulator.cpp.s
+.PHONY : src/simulator.cpp.s
 
 # Help Target
 help:
@@ -146,9 +391,33 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... test_snapshot_manager"
+	@echo "... box2d"
+	@echo "... glad"
+	@echo "... glfw"
+	@echo "... imgui"
+	@echo "... minimal_parking"
+	@echo "... pid_tracking"
+	@echo "... test_loop"
+	@echo "... test_loop_tests"
+	@echo "... visualization"
+	@echo "... src/physics/vehicle.o"
+	@echo "... src/physics/vehicle.i"
+	@echo "... src/physics/vehicle.s"
+	@echo "... src/physics/world.o"
+	@echo "... src/physics/world.i"
+	@echo "... src/physics/world.s"
+	@echo "... src/sensor/raycast_lidar.o"
+	@echo "... src/sensor/raycast_lidar.i"
+	@echo "... src/sensor/raycast_lidar.s"
+	@echo "... src/simulator.o"
+	@echo "... src/simulator.i"
+	@echo "... src/simulator.s"
 .PHONY : help
 
 

@@ -95,6 +95,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/local/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	cd /home/zhang/test_loop/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles /home/zhang/test_loop/build/tests//CMakeFiles/progress.marks
@@ -127,25 +172,169 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-tests/CMakeFiles/test_snapshot_manager.dir/rule:
-	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_snapshot_manager.dir/rule
-.PHONY : tests/CMakeFiles/test_snapshot_manager.dir/rule
+tests/CMakeFiles/test_loop_tests.dir/rule:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_loop_tests.dir/rule
+.PHONY : tests/CMakeFiles/test_loop_tests.dir/rule
 
 # Convenience name for target.
-test_snapshot_manager: tests/CMakeFiles/test_snapshot_manager.dir/rule
-.PHONY : test_snapshot_manager
+test_loop_tests: tests/CMakeFiles/test_loop_tests.dir/rule
+.PHONY : test_loop_tests
 
 # fast build rule for target.
-test_snapshot_manager/fast:
-	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/build
-.PHONY : test_snapshot_manager/fast
+test_loop_tests/fast:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/build
+.PHONY : test_loop_tests/fast
+
+test_main.o: test_main.cpp.o
+.PHONY : test_main.o
+
+# target to build an object file
+test_main.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_main.cpp.o
+.PHONY : test_main.cpp.o
+
+test_main.i: test_main.cpp.i
+.PHONY : test_main.i
+
+# target to preprocess a source file
+test_main.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_main.cpp.i
+.PHONY : test_main.cpp.i
+
+test_main.s: test_main.cpp.s
+.PHONY : test_main.s
+
+# target to generate assembly for a file
+test_main.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_main.cpp.s
+.PHONY : test_main.cpp.s
+
+test_parking_algorithm.o: test_parking_algorithm.cpp.o
+.PHONY : test_parking_algorithm.o
+
+# target to build an object file
+test_parking_algorithm.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_parking_algorithm.cpp.o
+.PHONY : test_parking_algorithm.cpp.o
+
+test_parking_algorithm.i: test_parking_algorithm.cpp.i
+.PHONY : test_parking_algorithm.i
+
+# target to preprocess a source file
+test_parking_algorithm.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_parking_algorithm.cpp.i
+.PHONY : test_parking_algorithm.cpp.i
+
+test_parking_algorithm.s: test_parking_algorithm.cpp.s
+.PHONY : test_parking_algorithm.s
+
+# target to generate assembly for a file
+test_parking_algorithm.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_parking_algorithm.cpp.s
+.PHONY : test_parking_algorithm.cpp.s
+
+test_physics.o: test_physics.cpp.o
+.PHONY : test_physics.o
+
+# target to build an object file
+test_physics.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_physics.cpp.o
+.PHONY : test_physics.cpp.o
+
+test_physics.i: test_physics.cpp.i
+.PHONY : test_physics.i
+
+# target to preprocess a source file
+test_physics.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_physics.cpp.i
+.PHONY : test_physics.cpp.i
+
+test_physics.s: test_physics.cpp.s
+.PHONY : test_physics.s
+
+# target to generate assembly for a file
+test_physics.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_physics.cpp.s
+.PHONY : test_physics.cpp.s
+
+test_sensor_hal.o: test_sensor_hal.cpp.o
+.PHONY : test_sensor_hal.o
+
+# target to build an object file
+test_sensor_hal.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sensor_hal.cpp.o
+.PHONY : test_sensor_hal.cpp.o
+
+test_sensor_hal.i: test_sensor_hal.cpp.i
+.PHONY : test_sensor_hal.i
+
+# target to preprocess a source file
+test_sensor_hal.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sensor_hal.cpp.i
+.PHONY : test_sensor_hal.cpp.i
+
+test_sensor_hal.s: test_sensor_hal.cpp.s
+.PHONY : test_sensor_hal.s
+
+# target to generate assembly for a file
+test_sensor_hal.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sensor_hal.cpp.s
+.PHONY : test_sensor_hal.cpp.s
+
+test_sim_types.o: test_sim_types.cpp.o
+.PHONY : test_sim_types.o
+
+# target to build an object file
+test_sim_types.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sim_types.cpp.o
+.PHONY : test_sim_types.cpp.o
+
+test_sim_types.i: test_sim_types.cpp.i
+.PHONY : test_sim_types.i
+
+# target to preprocess a source file
+test_sim_types.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sim_types.cpp.i
+.PHONY : test_sim_types.cpp.i
+
+test_sim_types.s: test_sim_types.cpp.s
+.PHONY : test_sim_types.s
+
+# target to generate assembly for a file
+test_sim_types.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_sim_types.cpp.s
+.PHONY : test_sim_types.cpp.s
+
+test_simulator.o: test_simulator.cpp.o
+.PHONY : test_simulator.o
+
+# target to build an object file
+test_simulator.cpp.o:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_simulator.cpp.o
+.PHONY : test_simulator.cpp.o
+
+test_simulator.i: test_simulator.cpp.i
+.PHONY : test_simulator.i
+
+# target to preprocess a source file
+test_simulator.cpp.i:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_simulator.cpp.i
+.PHONY : test_simulator.cpp.i
+
+test_simulator.s: test_simulator.cpp.s
+.PHONY : test_simulator.s
+
+# target to generate assembly for a file
+test_simulator.cpp.s:
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_simulator.cpp.s
+.PHONY : test_simulator.cpp.s
 
 test_snapshot_manager.o: test_snapshot_manager.cpp.o
 .PHONY : test_snapshot_manager.o
 
 # target to build an object file
 test_snapshot_manager.cpp.o:
-	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/test_snapshot_manager.cpp.o
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_snapshot_manager.cpp.o
 .PHONY : test_snapshot_manager.cpp.o
 
 test_snapshot_manager.i: test_snapshot_manager.cpp.i
@@ -153,7 +342,7 @@ test_snapshot_manager.i: test_snapshot_manager.cpp.i
 
 # target to preprocess a source file
 test_snapshot_manager.cpp.i:
-	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/test_snapshot_manager.cpp.i
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_snapshot_manager.cpp.i
 .PHONY : test_snapshot_manager.cpp.i
 
 test_snapshot_manager.s: test_snapshot_manager.cpp.s
@@ -161,7 +350,7 @@ test_snapshot_manager.s: test_snapshot_manager.cpp.s
 
 # target to generate assembly for a file
 test_snapshot_manager.cpp.s:
-	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/test_snapshot_manager.cpp.s
+	cd /home/zhang/test_loop/build && $(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/test_snapshot_manager.cpp.s
 .PHONY : test_snapshot_manager.cpp.s
 
 # Help Target
@@ -171,9 +360,31 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... test_snapshot_manager"
+	@echo "... test_loop_tests"
+	@echo "... test_main.o"
+	@echo "... test_main.i"
+	@echo "... test_main.s"
+	@echo "... test_parking_algorithm.o"
+	@echo "... test_parking_algorithm.i"
+	@echo "... test_parking_algorithm.s"
+	@echo "... test_physics.o"
+	@echo "... test_physics.i"
+	@echo "... test_physics.s"
+	@echo "... test_sensor_hal.o"
+	@echo "... test_sensor_hal.i"
+	@echo "... test_sensor_hal.s"
+	@echo "... test_sim_types.o"
+	@echo "... test_sim_types.i"
+	@echo "... test_sim_types.s"
+	@echo "... test_simulator.o"
+	@echo "... test_simulator.i"
+	@echo "... test_simulator.s"
 	@echo "... test_snapshot_manager.o"
 	@echo "... test_snapshot_manager.i"
 	@echo "... test_snapshot_manager.s"

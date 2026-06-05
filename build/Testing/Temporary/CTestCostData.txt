@@ -1,2 +1,2 @@
-test_snapshot_manager 1 0.00701758
+test_loop_tests 2 0.0577534
 ---

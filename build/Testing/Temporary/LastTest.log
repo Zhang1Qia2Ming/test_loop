@@ -1,24 +1,24 @@
-Start testing: Jun 06 00:34 CST
+Start testing: Jun 06 01:49 CST
 ----------------------------------------------------------
-1/1 Testing: test_snapshot_manager
-1/1 Test: test_snapshot_manager
-Command: "/home/zhang/test_loop/build/tests/test_snapshot_manager"
+1/1 Testing: test_loop_tests
+1/1 Test: test_loop_tests
+Command: "/home/zhang/test_loop/build/tests/test_loop_tests"
 Directory: /home/zhang/test_loop/build/tests
-"test_snapshot_manager" start time: Jun 06 00:34 CST
+"test_loop_tests" start time: Jun 06 01:49 CST
 Output:
 ----------------------------------------------------------
 [doctest] doctest version is "2.3.7"
 [doctest] run with "--help" for options
 ===============================================================================
-[doctest] test cases:      7 |      7 passed |      0 failed |      0 skipped
-[doctest] assertions:     34 |     34 passed |      0 failed |
+[doctest] test cases:     24 |     24 passed |      0 failed |      0 skipped
+[doctest] assertions:    114 |    114 passed |      0 failed |
 [doctest] Status: SUCCESS!
 <end of output>
-Test time =   0.01 sec
+Test time =   0.12 sec
 ----------------------------------------------------------
 Test Passed.
-"test_snapshot_manager" end time: Jun 06 00:34 CST
-"test_snapshot_manager" time elapsed: 00:00:00
+"test_loop_tests" end time: Jun 06 01:49 CST
+"test_loop_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 06 00:34 CST
+End testing: Jun 06 01:49 CST

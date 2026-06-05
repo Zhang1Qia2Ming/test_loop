@@ -63,22 +63,134 @@ CMAKE_BINARY_DIR = /home/zhang/test_loop/build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
+all: CMakeFiles/test_loop.dir/all
+all: third_party/box2d/all
+all: examples/minimal_parking/all
+all: examples/pid_tracking/all
+all: examples/visualization/all
 all: tests/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
+preinstall: third_party/box2d/preinstall
+preinstall: examples/minimal_parking/preinstall
+preinstall: examples/pid_tracking/preinstall
+preinstall: examples/visualization/preinstall
 preinstall: tests/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
+clean: CMakeFiles/test_loop.dir/clean
+clean: third_party/box2d/clean
+clean: examples/minimal_parking/clean
+clean: examples/pid_tracking/clean
+clean: examples/visualization/clean
 clean: tests/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory examples/minimal_parking
+
+# Recursive "all" directory target.
+examples/minimal_parking/all: examples/minimal_parking/CMakeFiles/minimal_parking.dir/all
+.PHONY : examples/minimal_parking/all
+
+# Recursive "preinstall" directory target.
+examples/minimal_parking/preinstall:
+.PHONY : examples/minimal_parking/preinstall
+
+# Recursive "clean" directory target.
+examples/minimal_parking/clean: examples/minimal_parking/CMakeFiles/minimal_parking.dir/clean
+.PHONY : examples/minimal_parking/clean
+
+#=============================================================================
+# Directory level rules for directory examples/pid_tracking
+
+# Recursive "all" directory target.
+examples/pid_tracking/all: examples/pid_tracking/CMakeFiles/pid_tracking.dir/all
+.PHONY : examples/pid_tracking/all
+
+# Recursive "preinstall" directory target.
+examples/pid_tracking/preinstall:
+.PHONY : examples/pid_tracking/preinstall
+
+# Recursive "clean" directory target.
+examples/pid_tracking/clean: examples/pid_tracking/CMakeFiles/pid_tracking.dir/clean
+.PHONY : examples/pid_tracking/clean
+
+#=============================================================================
+# Directory level rules for directory examples/visualization
+
+# Recursive "all" directory target.
+examples/visualization/all: examples/visualization/CMakeFiles/visualization.dir/all
+examples/visualization/all: glad/all
+examples/visualization/all: glfw/all
+examples/visualization/all: imgui/all
+.PHONY : examples/visualization/all
+
+# Recursive "preinstall" directory target.
+examples/visualization/preinstall: glad/preinstall
+examples/visualization/preinstall: glfw/preinstall
+examples/visualization/preinstall: imgui/preinstall
+.PHONY : examples/visualization/preinstall
+
+# Recursive "clean" directory target.
+examples/visualization/clean: examples/visualization/CMakeFiles/visualization.dir/clean
+examples/visualization/clean: glad/clean
+examples/visualization/clean: glfw/clean
+examples/visualization/clean: imgui/clean
+.PHONY : examples/visualization/clean
+
+#=============================================================================
+# Directory level rules for directory glad
+
+# Recursive "all" directory target.
+glad/all: glad/CMakeFiles/glad.dir/all
+.PHONY : glad/all
+
+# Recursive "preinstall" directory target.
+glad/preinstall:
+.PHONY : glad/preinstall
+
+# Recursive "clean" directory target.
+glad/clean: glad/CMakeFiles/glad.dir/clean
+.PHONY : glad/clean
+
+#=============================================================================
+# Directory level rules for directory glfw
+
+# Recursive "all" directory target.
+glfw/all: glfw/CMakeFiles/glfw.dir/all
+.PHONY : glfw/all
+
+# Recursive "preinstall" directory target.
+glfw/preinstall:
+.PHONY : glfw/preinstall
+
+# Recursive "clean" directory target.
+glfw/clean: glfw/CMakeFiles/glfw.dir/clean
+.PHONY : glfw/clean
+
+#=============================================================================
+# Directory level rules for directory imgui
+
+# Recursive "all" directory target.
+imgui/all: imgui/CMakeFiles/imgui.dir/all
+.PHONY : imgui/all
+
+# Recursive "preinstall" directory target.
+imgui/preinstall:
+.PHONY : imgui/preinstall
+
+# Recursive "clean" directory target.
+imgui/clean: imgui/CMakeFiles/imgui.dir/clean
+.PHONY : imgui/clean
 
 #=============================================================================
 # Directory level rules for directory tests
 
 # Recursive "all" directory target.
-tests/all: tests/CMakeFiles/test_snapshot_manager.dir/all
+tests/all: tests/CMakeFiles/test_loop_tests.dir/all
 .PHONY : tests/all
 
 # Recursive "preinstall" directory target.
@@ -86,34 +198,279 @@ tests/preinstall:
 .PHONY : tests/preinstall
 
 # Recursive "clean" directory target.
-tests/clean: tests/CMakeFiles/test_snapshot_manager.dir/clean
+tests/clean: tests/CMakeFiles/test_loop_tests.dir/clean
 .PHONY : tests/clean
 
 #=============================================================================
-# Target rules for target tests/CMakeFiles/test_snapshot_manager.dir
+# Directory level rules for directory third_party/box2d
+
+# Recursive "all" directory target.
+third_party/box2d/all: third_party/box2d/src/all
+.PHONY : third_party/box2d/all
+
+# Recursive "preinstall" directory target.
+third_party/box2d/preinstall: third_party/box2d/src/preinstall
+.PHONY : third_party/box2d/preinstall
+
+# Recursive "clean" directory target.
+third_party/box2d/clean: third_party/box2d/src/clean
+.PHONY : third_party/box2d/clean
+
+#=============================================================================
+# Directory level rules for directory third_party/box2d/src
+
+# Recursive "all" directory target.
+third_party/box2d/src/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+.PHONY : third_party/box2d/src/all
+
+# Recursive "preinstall" directory target.
+third_party/box2d/src/preinstall:
+.PHONY : third_party/box2d/src/preinstall
+
+# Recursive "clean" directory target.
+third_party/box2d/src/clean: third_party/box2d/src/CMakeFiles/box2d.dir/clean
+.PHONY : third_party/box2d/src/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/test_loop.dir
 
 # All Build rule for target.
-tests/CMakeFiles/test_snapshot_manager.dir/all:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/depend
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=1,2 "Built target test_snapshot_manager"
-.PHONY : tests/CMakeFiles/test_snapshot_manager.dir/all
+CMakeFiles/test_loop.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=75,76,77,78,79 "Built target test_loop"
+.PHONY : CMakeFiles/test_loop.dir/all
 
 # Build rule for subdir invocation for target.
-tests/CMakeFiles/test_snapshot_manager.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_snapshot_manager.dir/all
+CMakeFiles/test_loop.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 51
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/test_loop.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
-.PHONY : tests/CMakeFiles/test_snapshot_manager.dir/rule
+.PHONY : CMakeFiles/test_loop.dir/rule
 
 # Convenience name for target.
-test_snapshot_manager: tests/CMakeFiles/test_snapshot_manager.dir/rule
-.PHONY : test_snapshot_manager
+test_loop: CMakeFiles/test_loop.dir/rule
+.PHONY : test_loop
 
 # clean rule for target.
-tests/CMakeFiles/test_snapshot_manager.dir/clean:
-	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_snapshot_manager.dir/build.make tests/CMakeFiles/test_snapshot_manager.dir/clean
-.PHONY : tests/CMakeFiles/test_snapshot_manager.dir/clean
+CMakeFiles/test_loop.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_loop.dir/build.make CMakeFiles/test_loop.dir/clean
+.PHONY : CMakeFiles/test_loop.dir/clean
+
+#=============================================================================
+# Target rules for target third_party/box2d/src/CMakeFiles/box2d.dir
+
+# All Build rule for target.
+third_party/box2d/src/CMakeFiles/box2d.dir/all:
+	$(MAKE) $(MAKESILENT) -f third_party/box2d/src/CMakeFiles/box2d.dir/build.make third_party/box2d/src/CMakeFiles/box2d.dir/depend
+	$(MAKE) $(MAKESILENT) -f third_party/box2d/src/CMakeFiles/box2d.dir/build.make third_party/box2d/src/CMakeFiles/box2d.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46 "Built target box2d"
+.PHONY : third_party/box2d/src/CMakeFiles/box2d.dir/all
+
+# Build rule for subdir invocation for target.
+third_party/box2d/src/CMakeFiles/box2d.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 46
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 third_party/box2d/src/CMakeFiles/box2d.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : third_party/box2d/src/CMakeFiles/box2d.dir/rule
+
+# Convenience name for target.
+box2d: third_party/box2d/src/CMakeFiles/box2d.dir/rule
+.PHONY : box2d
+
+# clean rule for target.
+third_party/box2d/src/CMakeFiles/box2d.dir/clean:
+	$(MAKE) $(MAKESILENT) -f third_party/box2d/src/CMakeFiles/box2d.dir/build.make third_party/box2d/src/CMakeFiles/box2d.dir/clean
+.PHONY : third_party/box2d/src/CMakeFiles/box2d.dir/clean
+
+#=============================================================================
+# Target rules for target examples/minimal_parking/CMakeFiles/minimal_parking.dir
+
+# All Build rule for target.
+examples/minimal_parking/CMakeFiles/minimal_parking.dir/all: CMakeFiles/test_loop.dir/all
+examples/minimal_parking/CMakeFiles/minimal_parking.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/depend
+	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=71,72 "Built target minimal_parking"
+.PHONY : examples/minimal_parking/CMakeFiles/minimal_parking.dir/all
+
+# Build rule for subdir invocation for target.
+examples/minimal_parking/CMakeFiles/minimal_parking.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 53
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/minimal_parking/CMakeFiles/minimal_parking.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : examples/minimal_parking/CMakeFiles/minimal_parking.dir/rule
+
+# Convenience name for target.
+minimal_parking: examples/minimal_parking/CMakeFiles/minimal_parking.dir/rule
+.PHONY : minimal_parking
+
+# clean rule for target.
+examples/minimal_parking/CMakeFiles/minimal_parking.dir/clean:
+	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/clean
+.PHONY : examples/minimal_parking/CMakeFiles/minimal_parking.dir/clean
+
+#=============================================================================
+# Target rules for target examples/pid_tracking/CMakeFiles/pid_tracking.dir
+
+# All Build rule for target.
+examples/pid_tracking/CMakeFiles/pid_tracking.dir/all: CMakeFiles/test_loop.dir/all
+examples/pid_tracking/CMakeFiles/pid_tracking.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/depend
+	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=73,74 "Built target pid_tracking"
+.PHONY : examples/pid_tracking/CMakeFiles/pid_tracking.dir/all
+
+# Build rule for subdir invocation for target.
+examples/pid_tracking/CMakeFiles/pid_tracking.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 53
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/pid_tracking/CMakeFiles/pid_tracking.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : examples/pid_tracking/CMakeFiles/pid_tracking.dir/rule
+
+# Convenience name for target.
+pid_tracking: examples/pid_tracking/CMakeFiles/pid_tracking.dir/rule
+.PHONY : pid_tracking
+
+# clean rule for target.
+examples/pid_tracking/CMakeFiles/pid_tracking.dir/clean:
+	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/clean
+.PHONY : examples/pid_tracking/CMakeFiles/pid_tracking.dir/clean
+
+#=============================================================================
+# Target rules for target examples/visualization/CMakeFiles/visualization.dir
+
+# All Build rule for target.
+examples/visualization/CMakeFiles/visualization.dir/all: CMakeFiles/test_loop.dir/all
+examples/visualization/CMakeFiles/visualization.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+examples/visualization/CMakeFiles/visualization.dir/all: glad/CMakeFiles/glad.dir/all
+examples/visualization/CMakeFiles/visualization.dir/all: glfw/CMakeFiles/glfw.dir/all
+examples/visualization/CMakeFiles/visualization.dir/all: imgui/CMakeFiles/imgui.dir/all
+	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/depend
+	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=88,89,90,91 "Built target visualization"
+.PHONY : examples/visualization/CMakeFiles/visualization.dir/all
+
+# Build rule for subdir invocation for target.
+examples/visualization/CMakeFiles/visualization.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 79
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 examples/visualization/CMakeFiles/visualization.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : examples/visualization/CMakeFiles/visualization.dir/rule
+
+# Convenience name for target.
+visualization: examples/visualization/CMakeFiles/visualization.dir/rule
+.PHONY : visualization
+
+# clean rule for target.
+examples/visualization/CMakeFiles/visualization.dir/clean:
+	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/clean
+.PHONY : examples/visualization/CMakeFiles/visualization.dir/clean
+
+#=============================================================================
+# Target rules for target glad/CMakeFiles/glad.dir
+
+# All Build rule for target.
+glad/CMakeFiles/glad.dir/all:
+	$(MAKE) $(MAKESILENT) -f glad/CMakeFiles/glad.dir/build.make glad/CMakeFiles/glad.dir/depend
+	$(MAKE) $(MAKESILENT) -f glad/CMakeFiles/glad.dir/build.make glad/CMakeFiles/glad.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=47,48 "Built target glad"
+.PHONY : glad/CMakeFiles/glad.dir/all
+
+# Build rule for subdir invocation for target.
+glad/CMakeFiles/glad.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glad/CMakeFiles/glad.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : glad/CMakeFiles/glad.dir/rule
+
+# Convenience name for target.
+glad: glad/CMakeFiles/glad.dir/rule
+.PHONY : glad
+
+# clean rule for target.
+glad/CMakeFiles/glad.dir/clean:
+	$(MAKE) $(MAKESILENT) -f glad/CMakeFiles/glad.dir/build.make glad/CMakeFiles/glad.dir/clean
+.PHONY : glad/CMakeFiles/glad.dir/clean
+
+#=============================================================================
+# Target rules for target glfw/CMakeFiles/glfw.dir
+
+# All Build rule for target.
+glfw/CMakeFiles/glfw.dir/all:
+	$(MAKE) $(MAKESILENT) -f glfw/CMakeFiles/glfw.dir/build.make glfw/CMakeFiles/glfw.dir/depend
+	$(MAKE) $(MAKESILENT) -f glfw/CMakeFiles/glfw.dir/build.make glfw/CMakeFiles/glfw.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65 "Built target glfw"
+.PHONY : glfw/CMakeFiles/glfw.dir/all
+
+# Build rule for subdir invocation for target.
+glfw/CMakeFiles/glfw.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 17
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 glfw/CMakeFiles/glfw.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : glfw/CMakeFiles/glfw.dir/rule
+
+# Convenience name for target.
+glfw: glfw/CMakeFiles/glfw.dir/rule
+.PHONY : glfw
+
+# clean rule for target.
+glfw/CMakeFiles/glfw.dir/clean:
+	$(MAKE) $(MAKESILENT) -f glfw/CMakeFiles/glfw.dir/build.make glfw/CMakeFiles/glfw.dir/clean
+.PHONY : glfw/CMakeFiles/glfw.dir/clean
+
+#=============================================================================
+# Target rules for target imgui/CMakeFiles/imgui.dir
+
+# All Build rule for target.
+imgui/CMakeFiles/imgui.dir/all:
+	$(MAKE) $(MAKESILENT) -f imgui/CMakeFiles/imgui.dir/build.make imgui/CMakeFiles/imgui.dir/depend
+	$(MAKE) $(MAKESILENT) -f imgui/CMakeFiles/imgui.dir/build.make imgui/CMakeFiles/imgui.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=66,67,68,69,70 "Built target imgui"
+.PHONY : imgui/CMakeFiles/imgui.dir/all
+
+# Build rule for subdir invocation for target.
+imgui/CMakeFiles/imgui.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 5
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 imgui/CMakeFiles/imgui.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : imgui/CMakeFiles/imgui.dir/rule
+
+# Convenience name for target.
+imgui: imgui/CMakeFiles/imgui.dir/rule
+.PHONY : imgui
+
+# clean rule for target.
+imgui/CMakeFiles/imgui.dir/clean:
+	$(MAKE) $(MAKESILENT) -f imgui/CMakeFiles/imgui.dir/build.make imgui/CMakeFiles/imgui.dir/clean
+.PHONY : imgui/CMakeFiles/imgui.dir/clean
+
+#=============================================================================
+# Target rules for target tests/CMakeFiles/test_loop_tests.dir
+
+# All Build rule for target.
+tests/CMakeFiles/test_loop_tests.dir/all: CMakeFiles/test_loop.dir/all
+tests/CMakeFiles/test_loop_tests.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=80,81,82,83,84,85,86,87 "Built target test_loop_tests"
+.PHONY : tests/CMakeFiles/test_loop_tests.dir/all
+
+# Build rule for subdir invocation for target.
+tests/CMakeFiles/test_loop_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 59
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 tests/CMakeFiles/test_loop_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/zhang/test_loop/build/CMakeFiles 0
+.PHONY : tests/CMakeFiles/test_loop_tests.dir/rule
+
+# Convenience name for target.
+test_loop_tests: tests/CMakeFiles/test_loop_tests.dir/rule
+.PHONY : test_loop_tests
+
+# clean rule for target.
+tests/CMakeFiles/test_loop_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/clean
+.PHONY : tests/CMakeFiles/test_loop_tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

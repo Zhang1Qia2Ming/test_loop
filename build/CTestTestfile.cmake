@@ -4,4 +4,8 @@
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
+subdirs("third_party/box2d")
+subdirs("examples/minimal_parking")
+subdirs("examples/pid_tracking")
+subdirs("examples/visualization")
 subdirs("tests")

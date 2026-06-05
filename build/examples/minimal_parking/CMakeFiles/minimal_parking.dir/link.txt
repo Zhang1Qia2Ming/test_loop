@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/minimal_parking.dir/main.cpp.o -o minimal_parking  ../../libtest_loop.a ../../third_party/box2d/bin/libbox2d.a 

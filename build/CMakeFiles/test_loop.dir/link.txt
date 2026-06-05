@@ -1,0 +1,2 @@
+/usr/bin/ar qc libtest_loop.a CMakeFiles/test_loop.dir/src/physics/world.cpp.o CMakeFiles/test_loop.dir/src/physics/vehicle.cpp.o CMakeFiles/test_loop.dir/src/sensor/raycast_lidar.cpp.o CMakeFiles/test_loop.dir/src/simulator.cpp.o
+/usr/bin/ranlib libtest_loop.a
