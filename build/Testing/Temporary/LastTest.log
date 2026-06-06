@@ -1,10 +1,10 @@
-Start testing: Jun 06 01:49 CST
+Start testing: Jun 06 23:36 CST
 ----------------------------------------------------------
 1/1 Testing: test_loop_tests
 1/1 Test: test_loop_tests
 Command: "/home/zhang/test_loop/build/tests/test_loop_tests"
 Directory: /home/zhang/test_loop/build/tests
-"test_loop_tests" start time: Jun 06 01:49 CST
+"test_loop_tests" start time: Jun 06 23:36 CST
 Output:
 ----------------------------------------------------------
 [doctest] doctest version is "2.3.7"
@@ -14,11 +14,11 @@ Output:
 [doctest] assertions:    114 |    114 passed |      0 failed |
 [doctest] Status: SUCCESS!
 <end of output>
-Test time =   0.12 sec
+Test time =   0.10 sec
 ----------------------------------------------------------
 Test Passed.
-"test_loop_tests" end time: Jun 06 01:49 CST
+"test_loop_tests" end time: Jun 06 23:36 CST
 "test_loop_tests" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 06 01:49 CST
+End testing: Jun 06 23:36 CST

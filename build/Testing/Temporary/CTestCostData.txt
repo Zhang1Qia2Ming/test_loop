@@ -1,2 +1,2 @@
-test_loop_tests 2 0.0577534
+test_loop_tests 1 0.101836
 ---

@@ -1,22 +1,22 @@
-Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/zhang/test_loop/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_68427/fast && /usr/bin/make  -f CMakeFiles/cmTC_68427.dir/build.make CMakeFiles/cmTC_68427.dir/build
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_761a4/fast && /usr/bin/make  -f CMakeFiles/cmTC_761a4.dir/build.make CMakeFiles/cmTC_761a4.dir/build
 make[1]: 进入目录“/home/zhang/test_loop/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_68427.dir/src.cxx.o
-/usr/bin/c++ -DCMAKE_HAVE_LIBC_PTHREAD  -std=c++17 -o CMakeFiles/cmTC_68427.dir/src.cxx.o -c /home/zhang/test_loop/build/CMakeFiles/CMakeTmp/src.cxx
-Linking CXX executable cmTC_68427
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68427.dir/link.txt --verbose=1
-/usr/bin/c++ CMakeFiles/cmTC_68427.dir/src.cxx.o -o cmTC_68427 
-/usr/bin/ld: CMakeFiles/cmTC_68427.dir/src.cxx.o: in function `main':
-src.cxx:(.text+0x46): undefined reference to `pthread_create'
-/usr/bin/ld: src.cxx:(.text+0x52): undefined reference to `pthread_detach'
-/usr/bin/ld: src.cxx:(.text+0x5e): undefined reference to `pthread_cancel'
-/usr/bin/ld: src.cxx:(.text+0x6f): undefined reference to `pthread_join'
+Building C object CMakeFiles/cmTC_761a4.dir/src.c.o
+/usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_761a4.dir/src.c.o -c /home/zhang/test_loop/build/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_761a4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_761a4.dir/link.txt --verbose=1
+/usr/bin/cc CMakeFiles/cmTC_761a4.dir/src.c.o -o cmTC_761a4 
+/usr/bin/ld: CMakeFiles/cmTC_761a4.dir/src.c.o: in function `main':
+src.c:(.text+0x46): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x5e): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x6f): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_68427.dir/build.make:99：cmTC_68427] 错误 1
+make[1]: *** [CMakeFiles/cmTC_761a4.dir/build.make:99：cmTC_761a4] 错误 1
 make[1]: 离开目录“/home/zhang/test_loop/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:127：cmTC_68427/fast] 错误 2
+make: *** [Makefile:127：cmTC_761a4/fast] 错误 2
 
 
 Source file was:
@@ -43,18 +43,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/zhang/test_loop/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make -f Makefile cmTC_efbdb/fast && /usr/bin/make  -f CMakeFiles/cmTC_efbdb.dir/build.make CMakeFiles/cmTC_efbdb.dir/build
+Run Build Command(s):/usr/bin/make -f Makefile cmTC_59b64/fast && /usr/bin/make  -f CMakeFiles/cmTC_59b64.dir/build.make CMakeFiles/cmTC_59b64.dir/build
 make[1]: 进入目录“/home/zhang/test_loop/build/CMakeFiles/CMakeTmp”
-Building CXX object CMakeFiles/cmTC_efbdb.dir/CheckFunctionExists.cxx.o
-/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create -std=c++17 -o CMakeFiles/cmTC_efbdb.dir/CheckFunctionExists.cxx.o -c /home/zhang/test_loop/build/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
-Linking CXX executable cmTC_efbdb
-/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_efbdb.dir/link.txt --verbose=1
-/usr/bin/c++  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_efbdb.dir/CheckFunctionExists.cxx.o -o cmTC_efbdb  -lpthreads 
+Building C object CMakeFiles/cmTC_59b64.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_59b64.dir/CheckFunctionExists.c.o -c /usr/local/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_59b64
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_59b64.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create CMakeFiles/cmTC_59b64.dir/CheckFunctionExists.c.o -o cmTC_59b64  -lpthreads 
 /usr/bin/ld: 找不到 -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_efbdb.dir/build.make:99：cmTC_efbdb] 错误 1
+make[1]: *** [CMakeFiles/cmTC_59b64.dir/build.make:99：cmTC_59b64] 错误 1
 make[1]: 离开目录“/home/zhang/test_loop/build/CMakeFiles/CMakeTmp”
-make: *** [Makefile:127：cmTC_efbdb/fast] 错误 2
+make: *** [Makefile:127：cmTC_59b64/fast] 错误 2
 
 
 

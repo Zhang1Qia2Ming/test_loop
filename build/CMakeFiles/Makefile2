@@ -287,8 +287,8 @@ third_party/box2d/src/CMakeFiles/box2d.dir/clean:
 # Target rules for target examples/minimal_parking/CMakeFiles/minimal_parking.dir
 
 # All Build rule for target.
-examples/minimal_parking/CMakeFiles/minimal_parking.dir/all: CMakeFiles/test_loop.dir/all
 examples/minimal_parking/CMakeFiles/minimal_parking.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+examples/minimal_parking/CMakeFiles/minimal_parking.dir/all: CMakeFiles/test_loop.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/minimal_parking/CMakeFiles/minimal_parking.dir/build.make examples/minimal_parking/CMakeFiles/minimal_parking.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=71,72 "Built target minimal_parking"
@@ -314,8 +314,8 @@ examples/minimal_parking/CMakeFiles/minimal_parking.dir/clean:
 # Target rules for target examples/pid_tracking/CMakeFiles/pid_tracking.dir
 
 # All Build rule for target.
-examples/pid_tracking/CMakeFiles/pid_tracking.dir/all: CMakeFiles/test_loop.dir/all
 examples/pid_tracking/CMakeFiles/pid_tracking.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+examples/pid_tracking/CMakeFiles/pid_tracking.dir/all: CMakeFiles/test_loop.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/pid_tracking/CMakeFiles/pid_tracking.dir/build.make examples/pid_tracking/CMakeFiles/pid_tracking.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=73,74 "Built target pid_tracking"
@@ -341,10 +341,10 @@ examples/pid_tracking/CMakeFiles/pid_tracking.dir/clean:
 # Target rules for target examples/visualization/CMakeFiles/visualization.dir
 
 # All Build rule for target.
-examples/visualization/CMakeFiles/visualization.dir/all: CMakeFiles/test_loop.dir/all
 examples/visualization/CMakeFiles/visualization.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
 examples/visualization/CMakeFiles/visualization.dir/all: glad/CMakeFiles/glad.dir/all
 examples/visualization/CMakeFiles/visualization.dir/all: glfw/CMakeFiles/glfw.dir/all
+examples/visualization/CMakeFiles/visualization.dir/all: CMakeFiles/test_loop.dir/all
 examples/visualization/CMakeFiles/visualization.dir/all: imgui/CMakeFiles/imgui.dir/all
 	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/depend
 	$(MAKE) $(MAKESILENT) -f examples/visualization/CMakeFiles/visualization.dir/build.make examples/visualization/CMakeFiles/visualization.dir/build
@@ -449,8 +449,8 @@ imgui/CMakeFiles/imgui.dir/clean:
 # Target rules for target tests/CMakeFiles/test_loop_tests.dir
 
 # All Build rule for target.
-tests/CMakeFiles/test_loop_tests.dir/all: CMakeFiles/test_loop.dir/all
 tests/CMakeFiles/test_loop_tests.dir/all: third_party/box2d/src/CMakeFiles/box2d.dir/all
+tests/CMakeFiles/test_loop_tests.dir/all: CMakeFiles/test_loop.dir/all
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/depend
 	$(MAKE) $(MAKESILENT) -f tests/CMakeFiles/test_loop_tests.dir/build.make tests/CMakeFiles/test_loop_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/zhang/test_loop/build/CMakeFiles --progress-num=80,81,82,83,84,85,86,87 "Built target test_loop_tests"

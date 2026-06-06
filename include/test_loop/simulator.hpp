@@ -34,6 +34,14 @@ public:
 
     bool rollback(size_t steps_back);
 
+    /**
+     * @brief 专家纠偏：将车辆瞬间传送到指定位姿
+     *
+     * 用于可视化场景中的鼠标拖拽重定位。传送后保留当前速度，
+     * 清除碰撞标志，并通知算法反序列化最近一次快照以恢复内部状态。
+     */
+    void teleport(const Pose2D& pose);
+
     size_t current_tick() const { return tick_count_; }
 
     IParkingAlgorithm* algorithm() const { return algorithm_.get(); }

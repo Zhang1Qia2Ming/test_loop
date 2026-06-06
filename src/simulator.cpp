@@ -87,4 +87,23 @@ bool Simulator::rollback(size_t steps_back) {
     return true;
 }
 
+void Simulator::teleport(const Pose2D& pose) {
+    if (!initialized_) return;
+
+    PhysicalState new_state = current_state_;
+    new_state.x = pose.x;
+    new_state.y = pose.y;
+    new_state.yaw = pose.yaw;
+
+    vehicle_.set_state(new_state);
+    current_state_ = new_state;
+    collision_ = false;
+
+    // 尝试恢复算法到最近快照，保持内部状态一致性
+    if (!snapshot_mgr_.empty()) {
+        auto latest = snapshot_mgr_.rollback(0);
+        algorithm_->deserialize_state(latest.algo_state);
+    }
+}
+
 } // namespace test_loop

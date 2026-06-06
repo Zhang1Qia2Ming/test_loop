@@ -12,6 +12,8 @@ ParkSim-2D 是一个面向自动驾驶 **规划与控制（P&C）** 算法的轻
 
 目标是为泊车、路径跟踪、局部规划与控制算法提供一个**快速、稳定、可复现**的工程化验证平台。
 
+> **假设前端感知已生成 BEV 图作为规划器输入，本框架只做算法验证，不做视觉包装。**
+
 ---
 
 ## 为什么选择 ParkSim-2D
@@ -25,7 +27,6 @@ ParkSim-2D 是一个面向自动驾驶 **规划与控制（P&C）** 算法的轻
 
 ParkSim-2D 的设计原则很直接：
 
-> **假设前端感知生成了BEV图作为规划器的输入**
 > **只做算法验证，不做视觉包装。**  
 > **只保留闭环核心，不引入多余复杂度。**
 
@@ -92,16 +93,30 @@ graph TD
 ```text
 test_loop/
 ├── CMakeLists.txt
-├── include/
-│   └── test_loop/
-│       ├── sim_types.hpp
-│       ├── i_parking_algorithm.hpp
-│       ├── sensor_hal.hpp
-│       └── snapshot_manager.hpp
+├── include/test_loop/
+│   ├── sim_types.hpp              (数据类型 + 场景配置)
+│   ├── snapshot_manager.hpp       (环形缓冲区状态回溯器)
+│   ├── sensor_hal.hpp             (传感器抽象 + 数据)
+│   ├── i_parking_algorithm.hpp    (被测算法接入接口)
+│   ├── simulator.hpp              (主仿真器)
+│   ├── physics/
+│   │   ├── world.hpp              (Box2D 世界封装)
+│   │   └── vehicle.hpp            (车辆刚体 + 阿克曼转向)
+│   └── sensor/
+│       └── raycast_lidar.hpp      (ISensorHal 的 Ray-cast 实现)
 ├── src/
-├── third_party/
-├── tests/
-└── examples/
+│   ├── simulator.cpp
+│   ├── physics/
+│   │   ├── world.cpp
+│   │   └── vehicle.cpp
+│   └── sensor/
+│       └── raycast_lidar.cpp
+├── tests/                         (doctest 单元测试)
+├── examples/
+│   ├── minimal_parking/           (Headless 碰撞 + 回滚)
+│   ├── pid_tracking/              (Stanley/Pure Pursuit 轨迹跟踪)
+│   └── visualization/             (Dear ImGui 实时可视化)
+└── third_party/box2d/
 ```
 
 ---
@@ -110,7 +125,8 @@ test_loop/
 
 - CMake >= 3.14
 - GCC / Clang，支持 C++17
-- Box2D
+- Box2D（已作为 submodule 放在 `third_party/box2d/`）
+- Linux: X11 开发库（用于 GLFW 窗口）
 
 ---
 
@@ -120,30 +136,69 @@ test_loop/
 git clone https://github.com/Zhang1Qia2Ming/test_loop.git
 cd test_loop
 
-mkdir build
-cd build
-
+mkdir build && cd build
 cmake ..
 make -j4
+
+# 运行单元测试
+ctest --output-on-failure
+
+# 运行可视化示例
+./examples/visualization/visualization
 ```
+
+---
+
+## 运行示例
+
+### 1. 可视化交互示例
+
+```bash
+./examples/visualization/visualization
+```
+
+弹出 1280x720 窗口，显示车辆、LiDAR 射线、历史轨迹、障碍物和目标车位：
+
+- **鼠标滚轮**：缩放场景
+- **左键点击空白处**：专家纠偏 —— 将车辆瞬间传送到点击位置
+- **History Rollback 滑动条**：拖动并释放，回滚到指定历史 tick
+- **Pause / Resume / Step / Reset**：控制仿真播放
+
+碰撞时车身会变为红色并自动暂停。
+
+### 2. 最小闭环示例
+
+```bash
+./examples/minimal_parking/minimal_parking
+```
+
+命令行输出车辆坐标，碰撞后自动回滚 10 步并继续。
+
+### 3. 轨迹跟踪示例
+
+```bash
+./examples/pid_tracking/pid_tracking
+```
+
+Stanley 控制器跟踪 L 型轨迹，终端输出横向/航向/速度误差统计。
 
 ---
 
 ## 路线图
 
 ### Phase 1：核心地基
-- [ ] 定义基础数据结构与内存布局
-- [ ] 实现定长数组状态回溯器
-- [ ] 定义被测算法接入接口
+- [x] 定义基础数据结构与内存布局
+- [x] 实现定长数组状态回溯器
+- [x] 定义被测算法接入接口
 
 ### Phase 2：物理闭环
-- [ ] 引入 Box2D
-- [ ] 实现阿克曼转向约束
-- [ ] 实现基础 Ray-cast 传感器与加噪模块
+- [x] 引入 Box2D
+- [x] 实现阿克曼转向约束
+- [x] 实现基础 Ray-cast 传感器与加噪模块
 
 ### Phase 3：可视化与在环纠偏
-- [ ] 接入 Dear ImGui 调试面板
-- [ ] 支持鼠标拖拽与历史状态可视化
+- [x] 接入 Dear ImGui 调试面板
+- [x] 支持鼠标拖拽与历史状态可视化
 
 ### Phase 4：高阶压测
 - [ ] 提供 Headless 命令行模式
